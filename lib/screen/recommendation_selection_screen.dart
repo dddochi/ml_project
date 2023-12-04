@@ -34,8 +34,12 @@ class RecommendationSelectionScreen extends StatelessWidget {
                       imagePath: 'asset/clothes/bottom_representation.jpeg',
                     ),
                     _Card(
-                      name: 'Suit',
+                      name: 'Dress',
                       imagePath: 'asset/clothes/suit_representation.jpeg',
+                    ),
+                    _Card(
+                      name: 'Outer',
+                      imagePath: 'asset/clothes/outer_representation.jpeg',
                     ),
                   ],
                 ),
@@ -69,7 +73,7 @@ class _Card extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.black,
         ),
-        width: 400,
+        width: 320,
         height: 600,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -9,6 +9,9 @@ class HomeScreenController extends GetxController {
   TextEditingController heightTextController = TextEditingController();
   TextEditingController bodyTypeTextController = TextEditingController(); //category
   TextEditingController bustSizeTextController = TextEditingController(); //category
+  String? bodyType;
+  String? bustSize;
+  List<int>? selectionList;
 
   //lookSelection
 

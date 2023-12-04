@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
-import 'package:ml_project/controller/home_screen_controller.dart';
+import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
 
 import 'look_selection_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class SelectionBasedHomeScreen extends StatelessWidget {
+  const SelectionBasedHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    HomeScreenController controller = Get.put(HomeScreenController());
+    SelectionBasedHomeScreenController controller = Get.put(SelectionBasedHomeScreenController());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -110,7 +110,7 @@ class _RowForOneInfo extends StatelessWidget {
 
 class _BodyTypeDropDownButton extends StatefulWidget {
   final String name;
-  final HomeScreenController controller;
+  final SelectionBasedHomeScreenController controller;
   // final List<String> list;
 
   const _BodyTypeDropDownButton({
@@ -172,7 +172,7 @@ class _BodyTypeDropDownButtonState extends State<_BodyTypeDropDownButton> {
 
 class _BustSizeDropDownButton extends StatefulWidget {
   final String name;
-  final HomeScreenController controller;
+  final SelectionBasedHomeScreenController controller;
   const _BustSizeDropDownButton({
     required this.name,
     required this.controller,

@@ -4,7 +4,7 @@ import 'package:ml_project/component/back_next_buttons.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
 import 'package:ml_project/const/clothes_list.dart';
-import 'package:ml_project/controller/home_screen_controller.dart';
+import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
 import 'package:ml_project/screen/recommendation_selection_screen.dart';
 import 'package:intl/intl.dart';
 
@@ -13,7 +13,7 @@ class LookSelectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeScreenController controller = Get.put(HomeScreenController());
+    SelectionBasedHomeScreenController controller = Get.put(SelectionBasedHomeScreenController());
     List<int>? selectionList = [];
     return Scaffold(
       body: Padding(
@@ -40,11 +40,21 @@ class LookSelectionScreen extends StatelessWidget {
                 _OuterList(
                   selectionList: selectionList,
                 ),
-                _BackNextButtons(
-                  next: () => const RecommendationSelectionScreen(),
-                  selectionList: selectionList,
-                  controller: controller,
+                BackNextButtons(
+                  onNextPressed: () {
+                    Get.to(() => const RecommendationSelectionScreen());
+                    print('Final selection list = $selectionList');
+                    controller.selectionList = selectionList;
+                  },
+                  // next: () => const RecommendationSelectionScreen(),
+                  // selectionList: selectionList,
+                  // controller: controller,
                 ),
+                // _BackNextButtons(
+                //   next: () => const RecommendationSelectionScreen(),
+                //   selectionList: selectionList,
+                //   controller: controller,
+                // ),
               ],
             ),
           ),
@@ -543,7 +553,7 @@ class _ColumnForAClothState extends State<_ColumnForACloth> {
 class _BackNextButtons extends StatelessWidget {
   final Function next;
   final List<int> selectionList;
-  final HomeScreenController controller;
+  final SelectionBasedHomeScreenController controller;
   const _BackNextButtons({
     required this.next,
     required this.selectionList,

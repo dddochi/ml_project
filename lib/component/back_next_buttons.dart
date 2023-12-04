@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:ml_project/screen/recommendation_selection_screen.dart';
 
 class BackNextButtons extends StatelessWidget {
-  final Function next;
+  final VoidCallback onNextPressed;
+  //final Function next;
   const BackNextButtons({
-    required this.next,
+    required this.onNextPressed,
+    //required this.next,
     super.key,
   });
 
@@ -23,9 +25,10 @@ class BackNextButtons extends StatelessWidget {
             width: 10.0,
           ),
           ElevatedButton(
-            onPressed: () {
-              Get.to(next);
-            },
+            onPressed: onNextPressed,
+            //() {
+            //   Get.to(next);
+            // },
             child: const Text('Next'),
           ),
         ],

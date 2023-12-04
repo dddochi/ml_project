@@ -150,3 +150,8 @@ enum CLOTHES {
 // //culotte = culottes
 // //kaftan = caftan
 // //추천(내 신체정보 -> 선택 top) / 커플 아이템 (같이 사는 것을 리스트로 - 내 신체 사이즈) - ranking 
+
+//main -> 추천(신체정보 + 선택) / 커플아이템 (신체정보) 
+
+//정보 입력 안하거나, 선택 안했을 때 - 페이지 안넘어가기!
+//textFormField 기능 사용

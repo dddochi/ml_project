@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeScreenController extends GetxController {
+class SelectionBasedHomeScreenController extends GetxController {
   TextEditingController nameTextController = TextEditingController();
   TextEditingController ageTextController = TextEditingController();
   TextEditingController weightTextController = TextEditingController();
@@ -12,6 +12,7 @@ class HomeScreenController extends GetxController {
   String? bodyType;
   String? bustSize;
   List<int>? selectionList;
+  List<String>? recommendationList;
 
   //lookSelection
 

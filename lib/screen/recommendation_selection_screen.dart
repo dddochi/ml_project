@@ -63,6 +63,7 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
                   print('Final selection list = $recommendationList');
                   controller.recommendationList = recommendationList;
                   //api request하기
+                  controller.getSelectionBasedRecommendation();
                 },
                 //next: () => const RecommendationOutcomeScreen(),
               )

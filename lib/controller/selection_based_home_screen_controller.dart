@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,17 +10,34 @@ class SelectionBasedHomeScreenController extends GetxController {
   TextEditingController heightTextController = TextEditingController();
   TextEditingController bodyTypeTextController = TextEditingController(); //category
   TextEditingController bustSizeTextController = TextEditingController(); //category
-  String? bodyType;
-  String? bustSize;
+  // String? bodyType;
+  // String? bustSize;
   List<int>? selectionList;
   List<String>? recommendationList;
 
-  //lookSelection
-
-  //top, bottom, suit
-
-  //recommendationSelection
-
   Dio dio = Dio();
-  // final response = dio.get('http://서버주소', data: {});
+
+  Future<String> getSelectionBasedRecommendation() async {
+    print('name = ${nameTextController.value.text}');
+    print('age: ${ageTextController.value.text}');
+    print('weight: ${weightTextController.value.text}');
+    print('height: ${heightTextController.value.text}');
+    print('body_type: ${bodyTypeTextController.value.text}');
+    print('bust_size: ${bustSizeTextController.value.text}');
+    print('selection_list $selectionList'); //item-id
+    print('recommendation_list $recommendationList');
+
+    // dio.get("https://서버주소", data: {
+    //   'name': nameTextController.value.text,
+    //   'age': int.parse(ageTextController.value.text),
+    //   'weight': double.parse(weightTextController.value.text),
+    //   'height': double.parse(heightTextController.value.text),
+    //   'body_type': bodyType,
+    //   'bust_size': bustSize,
+    //   'selection_list': selectionList,
+    //   'recommendation_list': recommendationList,
+    // });
+
+    return 'String';
+  }
 }

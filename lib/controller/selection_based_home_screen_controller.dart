@@ -12,7 +12,7 @@ class SelectionBasedHomeScreenController extends GetxController {
   TextEditingController bustSizeTextController = TextEditingController(); //category
   // String? bodyType;
   // String? bustSize;
-  List<int>? selectionList;
+  List<String>? selectionList;
   List<String>? recommendationList;
 
   Dio dio = Dio();

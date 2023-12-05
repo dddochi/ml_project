@@ -150,6 +150,7 @@ enum CLOTHES {
 // //culotte = culottes
 // //kaftan = caftan
 ////pants = pant
+///skirts = skirt
 // //추천(내 신체정보 -> 선택 top) / 커플 아이템 (같이 사는 것을 리스트로 - 내 신체 사이즈) - ranking 
 
 //main -> 추천(신체정보 + 선택) / 커플아이템 (신체정보) 

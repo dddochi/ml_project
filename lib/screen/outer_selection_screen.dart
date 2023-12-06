@@ -61,6 +61,7 @@ import 'package:ml_project/const/fake_name/turtleneck_list.dart';
 import 'package:ml_project/const/fake_name/vest_list.dart';
 import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
 import 'package:ml_project/model/item_model.dart';
+import 'package:ml_project/model/recommendation_model.dart';
 import 'package:ml_project/screen/recommendation_outcome_screen.dart';
 import 'package:ml_project/screen/recommendation_selection_screen.dart';
 import 'package:intl/intl.dart';
@@ -92,10 +93,15 @@ class OuterSelectionScreen extends StatelessWidget {
                   selectionList: outerSelectionList,
                 ),
                 BackNextButtons(
-                  onNextPressed: () {
-                    Get.to(() => const RecommendationOutcomeScreen());
+                  onNextPressed: () async {
                     print('Final selection list = $outerSelectionList');
                     controller.selectionList = outerSelectionList;
+                    //api request하기
+                    List<RecommendationModel> recommendationModel = await controller.getSelectionBasedRecommendation();
+                    Get.to(
+                      () => const RecommendationOutcomeScreen(),
+                      arguments: recommendationModel,
+                    );
                   },
                 ),
               ],

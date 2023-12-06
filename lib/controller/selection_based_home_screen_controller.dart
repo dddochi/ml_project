@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ml_project/model/recommendation_model.dart';
 
 class SelectionBasedHomeScreenController extends GetxController {
   TextEditingController nameTextController = TextEditingController();
@@ -16,7 +17,7 @@ class SelectionBasedHomeScreenController extends GetxController {
 
   Dio dio = Dio();
 
-  Future<String> getSelectionBasedRecommendation() async {
+  Future<List<RecommendationModel>> getSelectionBasedRecommendation() async {
     print('name = ${nameTextController.value.text}');
     print('age: ${ageTextController.value.text}');
     print('weight: ${weightTextController.value.text}');
@@ -24,7 +25,7 @@ class SelectionBasedHomeScreenController extends GetxController {
     print('body_type: ${bodyTypeTextController.value.text}');
     print('bust_size: ${bustSizeTextController.value.text}');
     print('selection_list $selectionList'); //item-id
-    print('recommendation_list $recommendationType'); // string
+    print('recommendation_type $recommendationType'); // string
 
     // dio.get("https://서버주소", data: {
     //   'name': nameTextController.value.text,
@@ -36,7 +37,18 @@ class SelectionBasedHomeScreenController extends GetxController {
     //   'selection_list': selectionList,
     //   'recommendation_list': recommendationList,
     // });
+    final json1 = {
+      'category': 0,
+      'item_id': '123_14',
+    };
+    final json2 = {
+      'category': 33,
+      'item_id': '12331_7',
+    };
 
-    return 'String';
+    return [
+      RecommendationModel.fromJson(json: json1),
+      RecommendationModel.fromJson(json: json2),
+    ];
   }
 }

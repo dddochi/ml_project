@@ -11,7 +11,7 @@ class RecommendationModel {
     required this.itemId,
   });
 
-  RecommendationModel(Map<String, dynamic> json)
+  RecommendationModel.fromJson({required Map<String, dynamic> json})
       : categoryList = getCategoryListName(getCategoryStringName(json['category'])),
         itemId = json['item_id'];
 

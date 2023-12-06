@@ -44,46 +44,67 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
                       name: 'Top',
                       imagePath: 'asset/clothes/top_representation.jpeg',
                       recommendationType: recommendationType,
-                      nextPageFunction: () {
-                        Get.to(const TopSelectionScreen());
+                      onTapPressed: () {
+                        setState(() {
+                          controller.recommendationType = 'top';
+                          print('Final selection list = $recommendationType');
+                          Get.to(const TopSelectionScreen());
+                        });
                       },
                     ),
                     _Card(
                       name: 'Bottom',
                       imagePath: 'asset/clothes/bottom_representation.jpeg',
                       recommendationType: recommendationType,
-                      nextPageFunction: () {
-                        Get.to(const BottomSelectionScreen());
+                      onTapPressed: () {
+                        setState(() {
+                          controller.recommendationType = 'bottom';
+                          print('Final selection list = $recommendationType');
+                          Get.to(const BottomSelectionScreen());
+                        });
                       },
                     ),
                     _Card(
                       name: 'Dress',
                       imagePath: 'asset/clothes/suit_representation.jpeg',
                       recommendationType: recommendationType,
-                      nextPageFunction: () {
-                        Get.to(const DressSelectionScreen());
+                      onTapPressed: () {
+                        setState(() {
+                          controller.recommendationType = 'dress';
+                          print('Final selection list = $recommendationType');
+                          Get.to(const DressSelectionScreen());
+                        });
                       },
                     ),
                     _Card(
                       name: 'Outer',
                       imagePath: 'asset/clothes/outer_representation.jpeg',
                       recommendationType: recommendationType,
-                      nextPageFunction: () {
-                        Get.to(const OuterSelectionScreen());
+                      onTapPressed: () {
+                        setState(() {
+                          controller.recommendationType = 'outer';
+                          print('Final selection list = $recommendationType');
+                          Get.to(const OuterSelectionScreen());
+                        });
                       },
                     ),
                   ],
                 ),
               ),
-              BackNextButtons(
-                onNextPressed: () {
-                  Get.to(() => const LookSelectionScreen());
-                  print('Final selection list = $recommendationType');
-                  controller.recommendationType = recommendationType;
-                  //api request하기
-                  controller.getSelectionBasedRecommendation();
+              // BackNextButtons(
+              //   onNextPressed: () {
+              //     // Get.to(() => const LookSelectionScreen());
+
+              //     // //api request하기
+              //     // controller.getSelectionBasedRecommendation();
+              //   },
+              //   //next: () => const RecommendationOutcomeScreen(),
+              // ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.back();
                 },
-                //next: () => const RecommendationOutcomeScreen(),
+                child: const Text('Back'),
               )
             ],
           ),
@@ -97,13 +118,13 @@ class _Card extends StatefulWidget {
   final String name;
   final String imagePath;
   final String? recommendationType;
-  final Function nextPageFunction;
+  final GestureTapCallback? onTapPressed;
 
   const _Card({
     required this.name,
     required this.imagePath,
     required this.recommendationType,
-    required this.nextPageFunction,
+    required this.onTapPressed,
   });
 
   @override
@@ -113,6 +134,7 @@ class _Card extends StatefulWidget {
 class _CardState extends State<_Card> {
   bool isClicked = false;
   String? recommendationType;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -122,16 +144,7 @@ class _CardState extends State<_Card> {
       child: Stack(
         children: [
           GestureDetector(
-            onTap: () {
-              setState(() {
-                // isClicked = !isClicked;
-                // widget.recommendationList.add(widget.name.toLowerCase());
-                recommendationType = widget.name.toLowerCase();
-                //controller에 넣기
-                print(widget.recommendationType);
-                widget.nextPageFunction();
-              });
-            },
+            onTap: widget.onTapPressed,
             child: Container(
               decoration: const BoxDecoration(
                 color: Colors.black,

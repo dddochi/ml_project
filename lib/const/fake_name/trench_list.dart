@@ -1,0 +1,22 @@
+final trench_list = [
+  {"item-id": "2954118", "type": "trench", "fake-name": "elegant quirky wholesome effortless trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "posh quirky spontaneous whimsical trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "elegant vintage eclectic organic trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "glamorous bohemian spontaneous versatile trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "fashionable urban urban poised trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "sophisticated playful zen refined trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "sophisticated whimsical eclectic organic trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "posh radiant urban trendsetting trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "radiant bohemian sharp suave trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "radiant vibrant refined radiant trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "trendy posh graceful radiant trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "chic eclectic lively opulent trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "stylish dynamic magnetic organic trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "contemporary dynamic eclectic effortless trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "exquisite vintage graceful opulent trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "classy bohemian blissful organic trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "radiant quirky futuristic whimsical trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "sleek bohemian refined effortless trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "posh posh sharp trendsetting trench", "image-path": "asset/clothes/trench/3.jpeg"},
+  {"item-id": "2954118", "type": "trench", "fake-name": "chic cozy sleek urbane trench", "image-path": "asset/clothes/trench/3.jpeg"}
+];

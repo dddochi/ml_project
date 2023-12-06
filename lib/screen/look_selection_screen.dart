@@ -6,7 +6,7 @@ import 'package:ml_project/component/back_next_buttons.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
 import 'package:ml_project/const/clothes_list.dart';
-import 'package:ml_project/const/fake_name/top_map.dart';
+import 'package:ml_project/const/fake_name/top_list.dart';
 import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
 import 'package:ml_project/model/item_model.dart';
 import 'package:ml_project/screen/recommendation_selection_screen.dart';

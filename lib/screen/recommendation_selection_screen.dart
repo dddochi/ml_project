@@ -3,8 +3,13 @@ import 'package:get/get.dart';
 import 'package:ml_project/component/back_next_buttons.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
+import 'package:ml_project/screen/bottom_selection_screen.dart';
+import 'package:ml_project/screen/dress_selection_screen.dart';
+import 'package:ml_project/screen/look_selection_screen.dart';
+import 'package:ml_project/screen/outer_selection_screen.dart';
 import 'package:ml_project/screen/recommendation_outcome_screen.dart';
 import 'package:ml_project/screen/selection_based_home_screen.dart';
+import 'package:ml_project/screen/top_selection_screen.dart';
 
 class RecommendationSelectionScreen extends StatefulWidget {
   const RecommendationSelectionScreen({super.key});
@@ -17,7 +22,8 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
   @override
   Widget build(BuildContext context) {
     SelectionBasedHomeScreenController controller = Get.put(SelectionBasedHomeScreenController());
-    List<String> recommendationList = [];
+    //List<String> recommendationList = [];
+    String? recommendationType;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -37,31 +43,43 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
                     _Card(
                       name: 'Top',
                       imagePath: 'asset/clothes/top_representation.jpeg',
-                      recommendationList: recommendationList,
+                      recommendationType: recommendationType,
+                      nextPageFunction: () {
+                        Get.to(const TopSelectionScreen());
+                      },
                     ),
                     _Card(
                       name: 'Bottom',
                       imagePath: 'asset/clothes/bottom_representation.jpeg',
-                      recommendationList: recommendationList,
+                      recommendationType: recommendationType,
+                      nextPageFunction: () {
+                        Get.to(const BottomSelectionScreen());
+                      },
                     ),
                     _Card(
                       name: 'Dress',
                       imagePath: 'asset/clothes/suit_representation.jpeg',
-                      recommendationList: recommendationList,
+                      recommendationType: recommendationType,
+                      nextPageFunction: () {
+                        Get.to(const DressSelectionScreen());
+                      },
                     ),
                     _Card(
                       name: 'Outer',
                       imagePath: 'asset/clothes/outer_representation.jpeg',
-                      recommendationList: recommendationList,
+                      recommendationType: recommendationType,
+                      nextPageFunction: () {
+                        Get.to(const OuterSelectionScreen());
+                      },
                     ),
                   ],
                 ),
               ),
               BackNextButtons(
                 onNextPressed: () {
-                  Get.to(() => const RecommendationOutcomeScreen());
-                  print('Final selection list = $recommendationList');
-                  controller.recommendationList = recommendationList;
+                  Get.to(() => const LookSelectionScreen());
+                  print('Final selection list = $recommendationType');
+                  controller.recommendationType = recommendationType;
                   //api request하기
                   controller.getSelectionBasedRecommendation();
                 },
@@ -78,11 +96,14 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
 class _Card extends StatefulWidget {
   final String name;
   final String imagePath;
-  final List<String> recommendationList;
+  final String? recommendationType;
+  final Function nextPageFunction;
+
   const _Card({
     required this.name,
     required this.imagePath,
-    required this.recommendationList,
+    required this.recommendationType,
+    required this.nextPageFunction,
   });
 
   @override
@@ -91,6 +112,7 @@ class _Card extends StatefulWidget {
 
 class _CardState extends State<_Card> {
   bool isClicked = false;
+  String? recommendationType;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -102,9 +124,12 @@ class _CardState extends State<_Card> {
           GestureDetector(
             onTap: () {
               setState(() {
-                isClicked = !isClicked;
-                widget.recommendationList.add(widget.name.toLowerCase());
-                print(widget.recommendationList);
+                // isClicked = !isClicked;
+                // widget.recommendationList.add(widget.name.toLowerCase());
+                recommendationType = widget.name.toLowerCase();
+                //controller에 넣기
+                print(widget.recommendationType);
+                widget.nextPageFunction();
               });
             },
             child: Container(
@@ -136,22 +161,22 @@ class _CardState extends State<_Card> {
               ),
             ),
           ),
-          if (isClicked)
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  isClicked = !isClicked;
-                  //widget.selectionList가 null일 때 remove가 발생가능? no..!
-                  widget.recommendationList.remove(widget.name.toLowerCase());
-                  print(widget.recommendationList);
-                });
-              },
-              child: Container(
-                width: 320,
-                height: 600,
-                color: Colors.blue.withOpacity(0.5),
-              ),
-            ),
+          // if (isClicked)
+          //   GestureDetector(
+          //     onTap: () {
+          //       setState(() {
+          //         isClicked = !isClicked;
+          //         //widget.selectionList가 null일 때 remove가 발생가능? no..!
+          //         widget.recommendationType.remove(widget.name.toLowerCase());
+          //         print(widget.recommendationType);
+          //       });
+          //     },
+          //     child: Container(
+          //       width: 320,
+          //       height: 600,
+          //       color: Colors.blue.withOpacity(0.5),
+          //     ),
+          //   ),
         ],
       ),
     );

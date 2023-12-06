@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SelectionBasedHomeScreenController extends GetxController {
+class BodySizeBasedController extends GetxController {
   TextEditingController nameTextController = TextEditingController();
   TextEditingController ageTextController = TextEditingController();
   TextEditingController weightTextController = TextEditingController();
@@ -12,7 +12,7 @@ class SelectionBasedHomeScreenController extends GetxController {
   // String? bodyType;
   // String? bustSize;
   List<String>? selectionList;
-  String? recommendationType;
+  List<String>? recommendationList;
 
   Dio dio = Dio();
 
@@ -24,7 +24,7 @@ class SelectionBasedHomeScreenController extends GetxController {
     print('body_type: ${bodyTypeTextController.value.text}');
     print('bust_size: ${bustSizeTextController.value.text}');
     print('selection_list $selectionList'); //item-id
-    print('recommendation_list $recommendationType'); // string
+    print('recommendation_list $recommendationList');
 
     // dio.get("https://서버주소", data: {
     //   'name': nameTextController.value.text,

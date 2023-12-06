@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ml_project/screen/body_size_based_home_screen.dart';
 import 'package:ml_project/screen/selection_based_home_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -24,7 +25,9 @@ class MainScreen extends StatelessWidget {
               width: 30.0,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => const BodySizeBasedHomeScreen());
+              },
               child: const Text('BodySize Based Couple Item Recommendation'),
             ),
           ],

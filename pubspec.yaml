@@ -63,7 +63,75 @@ flutter:
 
   assets:
     - asset/clothes/
+    - asset/clothes/ballgown/
+    - asset/clothes/blazer/
+    - asset/clothes/blouse/
+    - asset/clothes/blouson/
+    - asset/clothes/bomber/
+    - asset/clothes/buttondown/
+    - asset/clothes/caftan/
+    - asset/clothes/cami/
+    - asset/clothes/cape/
+    - asset/clothes/cardigan/
+    - asset/clothes/coat/
+    - asset/clothes/combo/
+    - asset/clothes/crewneck/
+    - asset/clothes/culotte/
+    - asset/clothes/culottes/
+    - asset/clothes/down/
+    - asset/clothes/dress/
+    - asset/clothes/duster/
+    - asset/clothes/for_/
+    - asset/clothes/frock/
+    - asset/clothes/gown/
+    - asset/clothes/henley/
+    - asset/clothes/hoodie/
+    - asset/clothes/jacket/
+    - asset/clothes/jeans/
+    - asset/clothes/jogger/
+    - asset/clothes/jumpsuit/
+    - asset/clothes/kaftan/
+    - asset/clothes/kimono/
+    - asset/clothes/knit/
+    - asset/clothes/legging/
+    - asset/clothes/leggings/
+    - asset/clothes/maxi/
+    - asset/clothes/midi/
+    - asset/clothes/mini/
+    - asset/clothes/overalls/
+    - asset/clothes/overcoat/
+    - asset/clothes/pant/
+    - asset/clothes/pants/
+    - asset/clothes/parka/
+    - asset/clothes/peacoat/
+    - asset/clothes/poncho/
+    - asset/clothes/print/
+    - asset/clothes/pullover/
+    - asset/clothes/romper/
+    - asset/clothes/sheath/
+    - asset/clothes/shift/
+    - asset/clothes/shirt/
+    - asset/clothes/shirtdress/
+    - asset/clothes/skirt/
+    - asset/clothes/skirts/
+    - asset/clothes/skort/
+    - asset/clothes/suit/
+    - asset/clothes/sweater/
+    - asset/clothes/sweatershirt/
+    - asset/clothes/sweatpants/
+    - asset/clothes/sweatshirt/
+    - asset/clothes/t_shirt/
+    - asset/clothes/tank/
+    - asset/clothes/tee/
+    - asset/clothes/tight/
     - asset/clothes/top/
+    - asset/clothes/trench/
+    - asset/clothes/trouser/
+    - asset/clothes/trousers/
+    - asset/clothes/tunic/
+    - asset/clothes/turtleneck/
+    - asset/clothes/vest/
+    
 
   # To add assets to your application, add an assets section, like this:
   # assets:

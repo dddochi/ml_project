@@ -157,3 +157,5 @@ enum CLOTHES {
 
 //정보 입력 안하거나, 선택 안했을 때 - 페이지 안넘어가기!
 //textFormField 기능 사용
+
+//돌려받을 때 item-id랑 카테고리 번호 같이 return 받기

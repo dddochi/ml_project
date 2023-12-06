@@ -3,20 +3,20 @@ import 'package:get/get.dart';
 import 'package:ml_project/component/back_next_buttons.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
+import 'package:ml_project/controller/body_size_based_controller.dart';
 import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
-import 'package:ml_project/screen/recommendation_selection_screen.dart';
 
 import 'look_selection_screen.dart';
 
-class SelectionBasedHomeScreen extends StatefulWidget {
-  const SelectionBasedHomeScreen({super.key});
+class BodySizeBasedHomeScreen extends StatefulWidget {
+  const BodySizeBasedHomeScreen({super.key});
 
   @override
-  State<SelectionBasedHomeScreen> createState() => _SelectionBasedHomeScreenState();
+  State<BodySizeBasedHomeScreen> createState() => _BodySizeBasedHomeScreenState();
 }
 
-class _SelectionBasedHomeScreenState extends State<SelectionBasedHomeScreen> {
-  SelectionBasedHomeScreenController controller = Get.put(SelectionBasedHomeScreenController());
+class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
+  BodySizeBasedController controller = Get.put(BodySizeBasedController());
   var bodyTypeSelectedValue = 'hourglass';
   final bodyTypeList = [
     'hourglass',
@@ -127,7 +127,7 @@ class _SelectionBasedHomeScreenState extends State<SelectionBasedHomeScreen> {
               BackNextButtons(
                 onNextPressed: () {
                   Get.to(
-                    () => const RecommendationSelectionScreen(),
+                    () => const LookSelectionScreen(),
                   );
                 },
               ),

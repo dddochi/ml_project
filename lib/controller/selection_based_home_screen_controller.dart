@@ -37,18 +37,22 @@ class SelectionBasedHomeScreenController extends GetxController {
     //   'selection_list': selectionList,
     //   'recommendation_list': recommendationList,
     // });
-    final json1 = {
-      'category': 0,
-      'item_id': '123_14',
-    };
-    final json2 = {
-      'category': 33,
-      'item_id': '12331_7',
-    };
 
-    return [
-      RecommendationModel.fromJson(json: json1),
-      RecommendationModel.fromJson(json: json2),
+    final list = [
+      {
+        'category': 0,
+        'item_id': '123_14',
+      },
+      {
+        'category': 33,
+        'item_id': '12331_7',
+      }
     ];
+    return list.map((e) => RecommendationModel.fromJson(json: e)).toList();
+
+    // return [
+    //   RecommendationModel.fromJson(json: json1),
+    //   RecommendationModel.fromJson(json: json2),
+    // ];
   }
 }

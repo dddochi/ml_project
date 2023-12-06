@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ml_project/const/clothes_list.dart';
+import 'package:ml_project/model/recommendation_model.dart';
 import 'package:ml_project/screen/body_size_based_home_screen.dart';
 import 'package:ml_project/screen/selection_based_home_screen.dart';
 

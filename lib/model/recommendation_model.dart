@@ -3,21 +3,21 @@ import 'package:get/get.dart';
 import 'package:ml_project/const/clothes_list.dart';
 
 class RecommendationModel {
-  final String categoryList;
+  final String categoryListName;
   final String itemId;
 
   RecommendationModel({
-    required this.categoryList,
+    required this.categoryListName,
     required this.itemId,
   });
 
   RecommendationModel.fromJson({required Map<String, dynamic> json})
-      : categoryList = getCategoryListName(getCategoryStringName(json['category'])),
+      : categoryListName = getCategoryListName(getCategoryStringName(json['category'])),
         itemId = json['item_id'];
 
   static String getCategoryStringName(categoryNumber) {
-    String categoryName = CLOTHES.values.firstWhere((element) => element == categoryNumber).toString();
-    return categoryName;
+    CLOTHES clothes = CLOTHES.values.firstWhere((element) => element.index == categoryNumber);
+    return clothes.name;
   }
 
   static String getCategoryListName(categoryName) {

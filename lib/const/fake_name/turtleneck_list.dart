@@ -1,4 +1,4 @@
-final turtleneck = [
+final turtleneck_list = [
   {"item-id": "2292972", "type": "turtleneck", "fake-name": "edgy dynamic sharp sleek turtleneck", "image-path": "asset/clothes/turtleneck/1.jpeg"},
   {"item-id": "2244325", "type": "turtleneck", "fake-name": "glamorous casual urban ethereal turtleneck", "image-path": "asset/clothes/turtleneck/2.jpeg"},
   {"item-id": "2040702", "type": "turtleneck", "fake-name": "sleek urban regal suave turtleneck", "image-path": "asset/clothes/turtleneck/3.jpeg"},

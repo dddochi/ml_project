@@ -40,14 +40,15 @@ class SelectionBasedHomeScreenController extends GetxController {
 
     final list = [
       {
-        'category': 0,
-        'item_id': '123_14',
+        'category': 1,
+        'item_id': "2660685",
       },
       {
-        'category': 33,
-        'item_id': '12331_7',
+        'category': 1,
+        'item_id': "2641483",
       }
     ];
+    print(list);
     return list.map((e) => RecommendationModel.fromJson(json: e)).toList();
 
     // return [

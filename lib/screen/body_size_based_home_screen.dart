@@ -5,6 +5,7 @@ import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
 import 'package:ml_project/controller/body_size_based_controller.dart';
 import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
+import 'package:ml_project/screen/recommendation_outcome_screen.dart';
 
 import 'look_selection_screen.dart';
 
@@ -127,7 +128,7 @@ class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
               BackNextButtons(
                 onNextPressed: () {
                   Get.to(
-                    () => const LookSelectionScreen(),
+                    () => const RecommendationOutcomeScreen(),
                   );
                 },
               ),

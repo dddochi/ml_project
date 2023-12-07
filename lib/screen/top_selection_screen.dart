@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ml_project/component/back_next_buttons.dart';
+import 'package:ml_project/component/cloth_component.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
 import 'package:ml_project/const/clothes_list.dart';
@@ -86,7 +87,7 @@ class TopSelectionScreen extends StatelessWidget {
             child: Column(
               children: [
                 const MainTitle(
-                  name: 'Look Selection',
+                  name: 'Top',
                 ),
                 _TopList(
                   renderItemModelList: pickClothesListRandomly(),
@@ -94,14 +95,15 @@ class TopSelectionScreen extends StatelessWidget {
                 ),
                 BackNextButtons(
                   onNextPressed: () async {
-                    Get.to(() => const RecommendationOutcomeScreen());
                     print('Final selection list = $topSelectionList');
                     controller.selectionList = topSelectionList;
                     //api request하기
-                    List<RecommendationModel> recommendationModel = await controller.getSelectionBasedRecommendation();
+                    List<RecommendationModel> recommendationModelList = await controller.getSelectionBasedRecommendation();
+                    print('top---------------------------------');
+                    print(recommendationModelList);
                     Get.to(
                       () => const RecommendationOutcomeScreen(),
-                      arguments: recommendationModel,
+                      arguments: recommendationModelList,
                     );
                   },
                 ),
@@ -243,7 +245,7 @@ class _TopListState extends State<_TopList> {
         //outer - cardigan, jacket, coat, overcoat, parka, tunic, caftan, bomber, blazer, cape, poncho, down, peacoat, overalls, combo, blouson, midi, duster, trench
         Row(
           children: result1
-              .map((e) => _ColumnForACloth(
+              .map((e) => ClothComponent(
                     selectionList: widget.selectionList,
                     itemId: e.itemId,
                     type: e.type,
@@ -254,7 +256,7 @@ class _TopListState extends State<_TopList> {
         ),
         Row(
           children: result2
-              .map((e) => _ColumnForACloth(
+              .map((e) => ClothComponent(
                     selectionList: widget.selectionList,
                     itemId: e.itemId,
                     type: e.type,
@@ -265,7 +267,7 @@ class _TopListState extends State<_TopList> {
         ),
         Row(
           children: result3
-              .map((e) => _ColumnForACloth(
+              .map((e) => ClothComponent(
                     selectionList: widget.selectionList,
                     itemId: e.itemId,
                     type: e.type,

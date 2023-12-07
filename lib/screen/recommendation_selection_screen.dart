@@ -37,7 +37,7 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
                 name: 'What Item Do You Want To Be Recommended?',
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 100.0),
+                padding: const EdgeInsets.symmetric(vertical: 50.0),
                 child: Row(
                   children: [
                     _Card(
@@ -141,56 +141,36 @@ class _CardState extends State<_Card> {
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: widget.onTapPressed,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.black,
-              ),
-              width: 320,
-              height: 600,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 45.0),
-                    child: Text(
-                      widget.name,
-                      style: const TextStyle(
-                        fontSize: 30.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Image.asset(
-                    widget.imagePath,
-                    width: 300,
-                    height: 400,
-                    fit: BoxFit.cover,
-                  ),
-                ],
-              ),
-            ),
+      child: GestureDetector(
+        onTap: widget.onTapPressed,
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.black,
           ),
-          // if (isClicked)
-          //   GestureDetector(
-          //     onTap: () {
-          //       setState(() {
-          //         isClicked = !isClicked;
-          //         //widget.selectionList가 null일 때 remove가 발생가능? no..!
-          //         widget.recommendationType.remove(widget.name.toLowerCase());
-          //         print(widget.recommendationType);
-          //       });
-          //     },
-          //     child: Container(
-          //       width: 320,
-          //       height: 600,
-          //       color: Colors.blue.withOpacity(0.5),
-          //     ),
-          //   ),
-        ],
+          width: 320,
+          height: 600,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 45.0),
+                child: Text(
+                  widget.name,
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Image.asset(
+                widget.imagePath,
+                width: 300,
+                height: 400,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

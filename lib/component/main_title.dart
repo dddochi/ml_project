@@ -9,7 +9,8 @@ class MainTitle extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.only(
-          top: 50.0,
+          top: 70.0,
+          bottom: 40.0,
         ),
         child: Text(
           name, //enter your information

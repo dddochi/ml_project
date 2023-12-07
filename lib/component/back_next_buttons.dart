@@ -13,7 +13,8 @@ class BackNextButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 30.0, left: 5.0),
       child: Row(
         children: [
           ElevatedButton(

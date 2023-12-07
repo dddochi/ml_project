@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ml_project/component/back_next_buttons.dart';
+import 'package:ml_project/component/cloth_component.dart';
 import 'package:ml_project/component/main_title.dart';
 import 'package:ml_project/component/sub_title.dart';
 import 'package:ml_project/const/clothes_list.dart';
@@ -86,7 +87,7 @@ class BottomSelectionScreen extends StatelessWidget {
             child: Column(
               children: [
                 const MainTitle(
-                  name: 'Look Selection',
+                  name: 'Bottom',
                 ),
                 _TopList(
                   renderItemModelList: pickClothesListRandomly(),
@@ -94,14 +95,13 @@ class BottomSelectionScreen extends StatelessWidget {
                 ),
                 BackNextButtons(
                   onNextPressed: () async {
-                    Get.to(() => const RecommendationOutcomeScreen());
                     print('Final selection list = $bottomSelectionList');
                     controller.selectionList = bottomSelectionList;
                     //api request하기
-                    List<RecommendationModel> recommendationModel = await controller.getSelectionBasedRecommendation();
+                    List<RecommendationModel> recommendationModelList = await controller.getSelectionBasedRecommendation();
                     Get.to(
                       () => const RecommendationOutcomeScreen(),
-                      arguments: recommendationModel,
+                      arguments: recommendationModelList,
                     );
                   },
                 ),
@@ -243,7 +243,7 @@ class _TopListState extends State<_TopList> {
         //outer - cardigan, jacket, coat, overcoat, parka, tunic, caftan, bomber, blazer, cape, poncho, down, peacoat, overalls, combo, blouson, midi, duster, trench
         Row(
           children: result1
-              .map((e) => _ColumnForACloth(
+              .map((e) => ClothComponent(
                     selectionList: widget.selectionList,
                     itemId: e.itemId,
                     type: e.type,
@@ -254,7 +254,7 @@ class _TopListState extends State<_TopList> {
         ),
         Row(
           children: result2
-              .map((e) => _ColumnForACloth(
+              .map((e) => ClothComponent(
                     selectionList: widget.selectionList,
                     itemId: e.itemId,
                     type: e.type,
@@ -265,7 +265,7 @@ class _TopListState extends State<_TopList> {
         ),
         Row(
           children: result3
-              .map((e) => _ColumnForACloth(
+              .map((e) => ClothComponent(
                     selectionList: widget.selectionList,
                     itemId: e.itemId,
                     type: e.type,
@@ -276,95 +276,6 @@ class _TopListState extends State<_TopList> {
         ),
       ],
     );
-  }
-}
-
-class _ColumnForACloth extends StatefulWidget {
-  //final CLOTHES cloth;
-  final String itemId;
-  final String type;
-  final String fakeName;
-  final String imagePath;
-  List<String>? selectionList;
-
-  _ColumnForACloth({
-    //required this.cloth,
-    required this.selectionList,
-    required this.itemId,
-    required this.type,
-    required this.fakeName,
-    required this.imagePath,
-  });
-
-  @override
-  State<_ColumnForACloth> createState() => _ColumnForAClothState();
-}
-
-class _ColumnForAClothState extends State<_ColumnForACloth> {
-  bool isClicked = false;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 13.0),
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                if (widget.selectionList!.length < 10) {
-                  isClicked = !isClicked;
-                  widget.selectionList?.add(widget.itemId);
-                  print(widget.selectionList);
-                } else {
-                  isClicked = false;
-                }
-              });
-            },
-            child: Image.asset(
-              widget.imagePath,
-              width: 200,
-              height: 280,
-              fit: BoxFit.cover,
-            ),
-          ),
-          if (isClicked)
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  isClicked = !isClicked;
-                  //widget.selectionList가 null일 때 remove가 발생가능? no..!
-                  widget.selectionList?.remove(widget.itemId);
-                  print(widget.selectionList);
-                });
-              },
-              child: Container(
-                width: 200,
-                height: 280,
-                color: Colors.blue.withOpacity(0.5),
-              ),
-            ),
-          // Padding(
-          // padding: const EdgeInsets.only(
-          //   right: 8.0,
-          //   left: 8.0,
-          //   top: 8.0,
-          //   bottom: 25.0,
-          Positioned(
-            bottom: 0,
-            child: SizedBox(
-              width: 200,
-              child: Text(
-                capitalize(widget.fakeName),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  String capitalize(String string) {
-    return "${string[0].toUpperCase()}${string.substring(1)}";
   }
 }
 

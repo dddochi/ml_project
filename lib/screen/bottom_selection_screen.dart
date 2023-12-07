@@ -114,79 +114,27 @@ class BottomSelectionScreen extends StatelessWidget {
   }
 
   List<ItemModel> pickClothesListRandomly() {
-    final clothesNameList = [
-      top_list,
-      ballgown_list,
-      blazer_list,
-      blouse_list,
-      blouson_list,
-      bomber_list,
-      buttondown_list,
-      //caftan_list,
-      cami_list,
-      cape_list,
-      cardigan_list,
-      coat_list,
-      crewneck_list,
+    final bottomClothesNameList = [
+      pants_list,
+      skirts_list,
+      trouser_list,
+      jogger_list,
+      sweatpants_list,
+      leggings_list, // Duplicate in your provided list
       culotte_list,
       //culottes_list,
-      down_list,
-      //dress_list,
-      duster_list,
-      frock_list,
-      //gown_list,
-      henley_list,
-      hoodie_list,
-      jacket_list,
-      jeans_list,
-      jogger_list,
-      jumpsuit_list,
-      kaftan_list,
-      kimono_list,
-      knit_list,
-      leggings_list,
       //legging_list,
-      maxi_list,
-      midi_list,
-      overalls_list,
-      overcoat_list,
-      //pant_list,
-      pants_list,
-      parka_list,
-      peacoat_list,
-      poncho_list,
-      print_list,
-      pullover_list,
-      romper_list,
-      //sheath_list,
-      shift_list,
-      shirt_list,
-      shirtdress_list,
-      //skirt_list,
       skirts_list,
       skort_list,
-      suit_list,
-      sweater_list,
-      //sweatershirt_list,
-      sweatpants_list,
-      sweatshirt_list,
-      //t_shirt_list,
-      tank_list,
-      tee_list,
-      top_list,
-      trench_list,
-      trouser_list,
       //trousers_list,
-      tunic_list,
-      turtleneck_list,
-      vest_list,
+      jeans_list,
     ];
     List<ItemModel> itemModelList = [];
     Random random = Random();
 
     for (int i = 0; i < 18; i++) {
-      int randomIndex = random.nextInt(clothesNameList.length);
-      final selectedClothesName = clothesNameList[randomIndex];
+      int randomIndex = random.nextInt(bottomClothesNameList.length);
+      final selectedClothesName = bottomClothesNameList[randomIndex];
       ItemModel itemModel = renderItemModelRandomly(selectedClothesName);
       itemModelList.add(itemModel);
     }
@@ -238,7 +186,7 @@ class _TopListState extends State<_TopList> {
     return Column(
       children: [
         //top - top, sweater, blouse, vest, tank, shirt, pullover, suit, tee, t-shirt, sweatshirt, turtleneck, sweatershirt, hoodie, crewneck, print, henley, buttondown, knit, cami, vest
-        //bottom - leggings, pants, skirt, trouser, jogger, sweatpants, leggings, culotte, culottes, legging,  skirts, skort, trousers, jeans
+        //bottom - pants, skirt, trouser, jogger, sweatpants, leggings, culotte, culottes, legging,  skirts, skort, trousers, jeans
         //dress -  kaftan, gown, dress, sheath, shift, shirtdress, ballgown, frock, maxi, jumpsuit, kimono, romper
         //outer - cardigan, jacket, coat, overcoat, parka, tunic, caftan, bomber, blazer, cape, poncho, down, peacoat, overalls, combo, blouson, midi, duster, trench
         Row(

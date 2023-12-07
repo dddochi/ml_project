@@ -24,7 +24,7 @@ class BodySizeBasedController extends GetxController {
     // print('selection_list $selectionList'); //item-id
     // print('recommendation_list $recommendationList');
 
-    // dio.get("https://서버주소", data: {
+    // dio.get("https://13.209.203.131:8080/body_size_based", data: {
     //   'name': nameTextController.value.text,
     //   'age': int.parse(ageTextController.value.text),
     //   'weight': double.parse(weightTextController.value.text),

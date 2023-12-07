@@ -34,10 +34,10 @@ class _RecommendationSelectionScreenState extends State<RecommendationSelectionS
           child: Column(
             children: [
               const MainTitle(
-                name: 'What Item Do You Want To Be Recommended?',
+                name: 'What item would you like to receive a recommendation for?',
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50.0),
+                padding: const EdgeInsets.symmetric(vertical: 60.0),
                 child: Row(
                   children: [
                     _Card(

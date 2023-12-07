@@ -17,7 +17,6 @@ class BodySizeBasedHomeScreen extends StatefulWidget {
 }
 
 class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
-  BodySizeBasedController controller = Get.put(BodySizeBasedController());
   var bodyTypeSelectedValue = 'hourglass';
   final bodyTypeList = [
     'hourglass',
@@ -57,7 +56,7 @@ class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
     //32j, 34j, 36j, 38j, 40j, 42j,
     '32j', '34j', '36j', '38j', '40j', '42j',
   ];
-
+  BodySizeBasedController controller = Get.put(BodySizeBasedController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,9 +125,14 @@ class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
                 ],
               ),
               BackNextButtons(
-                onNextPressed: () {
+                onNextPressed: () async {
+                  print('-----next button is clicked-------------');
+                  final result = await controller.getBodySizeBasedRecommendation();
+                  print('------list in home screen-------');
+
                   Get.to(
                     () => const RecommendationOutcomeScreen(),
+                    arguments: result,
                   );
                 },
               ),

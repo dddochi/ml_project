@@ -64,27 +64,43 @@ class _SelectionBasedHomeScreenState extends State<SelectionBasedHomeScreen> {
         padding: const EdgeInsets.symmetric(
           horizontal: 50.0,
         ),
-        child: SizedBox(
-          width: Get.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const MainTitle(
-                name: 'Who Are You?',
-              ),
-              Row(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 70,
+            ),
+            const MainTitle(
+              name: 'Who Are You?',
+            ),
+            SizedBox(
+              width: Get.width,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 400.0,
+                      right: 200.0,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SubTitle(name: 'Member Information'),
+                        _RowForOneInfo(
+                          name: 'Name',
+                          textEditingController: controller.nameTextController,
+                        ),
+                        _RowForOneInfo(
+                          name: 'Age',
+                          textEditingController: controller.ageTextController,
+                        ),
+                      ],
+                    ),
+                  ),
+
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SubTitle(name: 'Member Information'),
-                      _RowForOneInfo(
-                        name: 'Name',
-                        textEditingController: controller.nameTextController,
-                      ),
-                      _RowForOneInfo(
-                        name: 'Age',
-                        textEditingController: controller.ageTextController,
-                      ),
                       const SubTitle(name: 'Body Information'),
                       _RowForOneInfo(
                         name: 'Weight',
@@ -106,39 +122,32 @@ class _SelectionBasedHomeScreenState extends State<SelectionBasedHomeScreen> {
                         list: bustSizeList,
                         onChanged: onBustSizeChanged,
                       ),
-                      // _BustSizeDropDownButton(
-                      //   name: 'Bust Size',
-                      //   controller: controller,
-                      // ),
                     ],
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(
-                  //     left: 400.0,
-                  //     top: 200,
-                  //   ),
-                  //   child: Image.asset(
-                  //     'asset/clothes/cover1.png',
-                  //     width: 600,
-                  //   ),
+                  //   ],
                   // ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 35.0,
-                  left: 35.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 60,
+                    right: 350.0,
+                  ),
+                  child: BackNextButtons(
+                    onNextPressed: () {
+                      Get.to(
+                        () => const RecommendationSelectionScreen(),
+                      );
+                    },
+                  ),
                 ),
-                child: BackNextButtons(
-                  onNextPressed: () {
-                    Get.to(
-                      () => const RecommendationSelectionScreen(),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -174,6 +183,7 @@ class _RowForOneInfo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 10.0,
+        bottom: 5,
       ),
       child: Row(
         children: [
@@ -212,10 +222,12 @@ class _DropDownButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 10.0,
-        left: 30.0,
+        top: 20.0,
+        bottom: 10.0,
+        //left: 30.0,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(name),
           const SizedBox(

@@ -12,6 +12,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
             padding: EdgeInsets.only(
@@ -26,7 +27,7 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(bottom: 50.0),
+            padding: EdgeInsets.only(bottom: 80.0),
             child: Text(
               'Choose Recommendation',
               style: TextStyle(
@@ -76,6 +77,9 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 100.0,
           ),
         ],
       ),

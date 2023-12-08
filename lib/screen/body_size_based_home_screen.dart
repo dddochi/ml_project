@@ -6,6 +6,7 @@ import 'package:ml_project/component/sub_title.dart';
 import 'package:ml_project/controller/body_size_based_controller.dart';
 import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
 import 'package:ml_project/screen/recommendation_outcome_screen.dart';
+import 'package:ml_project/screen/recommendation_selection_screen.dart';
 
 import 'look_selection_screen.dart';
 
@@ -64,27 +65,43 @@ class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
         padding: const EdgeInsets.symmetric(
           horizontal: 50.0,
         ),
-        child: SizedBox(
-          width: Get.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const MainTitle(
-                name: 'Who Are You?',
-              ),
-              Row(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 70,
+            ),
+            const MainTitle(
+              name: 'Who Are You?',
+            ),
+            SizedBox(
+              width: Get.width,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 400.0,
+                      right: 200.0,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SubTitle(name: 'Member Information'),
+                        _RowForOneInfo(
+                          name: 'Name',
+                          textEditingController: controller.nameTextController,
+                        ),
+                        _RowForOneInfo(
+                          name: 'Age',
+                          textEditingController: controller.ageTextController,
+                        ),
+                      ],
+                    ),
+                  ),
+
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SubTitle(name: 'Member Information'),
-                      _RowForOneInfo(
-                        name: 'Name',
-                        textEditingController: controller.nameTextController,
-                      ),
-                      _RowForOneInfo(
-                        name: 'Age',
-                        textEditingController: controller.ageTextController,
-                      ),
                       const SubTitle(name: 'Body Information'),
                       _RowForOneInfo(
                         name: 'Weight',
@@ -106,44 +123,37 @@ class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
                         list: bustSizeList,
                         onChanged: onBustSizeChanged,
                       ),
-                      // _BustSizeDropDownButton(
-                      //   name: 'Bust Size',
-                      //   controller: controller,
-                      // ),
                     ],
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(
-                  //     left: 400.0,
-                  //     top: 200,
-                  //   ),
-                  //   child: Image.asset(
-                  //     'asset/clothes/cover1.png',
-                  //     width: 600,
-                  //   ),
+                  //   ],
                   // ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 35.0,
-                  left: 35.0,
-                ),
-                child: BackNextButtons(
-                  onNextPressed: () async {
-                    print('-----next button is clicked-------------');
-                    final result = await controller.getBodySizeBasedRecommendation();
-                    print('------list in home screen-------');
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 60,
+                    right: 350.0,
+                  ),
+                  child: BackNextButtons(
+                    onNextPressed: () async {
+                      print('-----next button is clicked-------------');
+                      final result = await controller.getBodySizeBasedRecommendation();
+                      print('------list in home screen-------');
 
-                    Get.to(
-                      () => const RecommendationOutcomeScreen(),
-                      arguments: result,
-                    );
-                  },
+                      Get.to(
+                        () => const RecommendationOutcomeScreen(),
+                        arguments: result,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -179,6 +189,7 @@ class _RowForOneInfo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 10.0,
+        bottom: 5,
       ),
       child: Row(
         children: [
@@ -217,10 +228,12 @@ class _DropDownButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 10.0,
-        left: 30.0,
+        top: 20.0,
+        bottom: 10.0,
+        //left: 30.0,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(name),
           const SizedBox(
@@ -243,6 +256,253 @@ class _DropDownButton extends StatelessWidget {
     );
   }
 }
+
+
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:ml_project/component/back_next_buttons.dart';
+// import 'package:ml_project/component/main_title.dart';
+// import 'package:ml_project/component/sub_title.dart';
+// import 'package:ml_project/controller/body_size_based_controller.dart';
+// import 'package:ml_project/controller/selection_based_home_screen_controller.dart';
+// import 'package:ml_project/screen/recommendation_outcome_screen.dart';
+
+// import 'look_selection_screen.dart';
+
+// class BodySizeBasedHomeScreen extends StatefulWidget {
+//   const BodySizeBasedHomeScreen({super.key});
+
+//   @override
+//   State<BodySizeBasedHomeScreen> createState() => _BodySizeBasedHomeScreenState();
+// }
+
+// class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
+//   var bodyTypeSelectedValue = 'hourglass';
+//   final bodyTypeList = [
+//     'hourglass',
+//     'straight & narrow',
+//     'pear',
+//     'athletic',
+//     'full bust',
+//     'petite',
+//     'apple',
+//   ];
+//   var bustSizeSelectedValue = '34b';
+//   final bustSizeList = [
+//     //28aa, 30aa, 32aa, 34aa, 36aa, 38aa,
+//     '28aa', '30aa', '32aa', '34aa', '36aa', '38aa',
+//     //28a, 30a, 32a, 34a, 36a, 38a,
+//     '28a', '30a', '32a', '34a', '36a', '38a',
+//     //28b, 30b, 32b, 34b, 36b, 38b, 40b, 42b, 44b,
+//     '28b', '30b', '32b', '34b', '36b', '38b', '40b', '42b', '44b',
+//     //28c, 30c, 32c, 34c, 36c, 38c, 40c, 42c, 44c, 46c,
+//     '28c', '30c', '32c', '34c', '36c', '38c', '40c', '42c', '44c', '46c',
+//     //28d 30d, 32d, 34d, 36d, 38d, 40d, 42d, 44d, 48d
+//     '28d', '30d', '32d', '34d', '36d', '38d', '40d', '42d', '44d', '48d',
+//     //32d+, 34d+, 36d+, 38d+,
+//     '32d+', '34d+', '36d+', '38d+',
+//     //28dd, 30dd, 32dd, 34dd, 36dd, 38dd, 40dd, 42dd, 44dd, 48dd
+//     '28dd', '30dd', '32dd', '34dd', '36dd', '38dd', '40dd', '42dd', '44dd', '48dd',
+//     //28ddd/e, 30ddd/e, 32ddd/e 34ddd/e, 36ddd/e, 38ddd/e 40ddd/e, 42ddd/e, 44ddd/e 46ddd/e
+//     '28ddd/e', '30ddd/e', '32ddd/e', '34ddd/e', '36ddd/e', '38ddd/e', '40ddd/e', '42ddd/e', '44ddd/e', '46ddd/e',
+//     //28f, 30f, 32f, 34f, 36f, 38f, 40f, 42f, 44f, 46f,
+//     '28f', '30f', '32f', '34f', '36f', '38f', '40f', '42f', '44f', '46f',
+//     //28g, 32g, 34g, 36g, 38g, 40g, 42g, 44g,
+//     '28g', '32g', '34g', '36g', '38g', '40g', '42g', '44g',
+//     //28h, 30h, 32h, 34h, 36h, 38h, 40h, 42h, 44h
+//     '28h', '30h', '32h', '34h', '36h', '38h', '40h', '42h', '44h',
+//     //28i, 30i, 32i, 34i, 36i, 38i, 40i
+//     '28i', '30i', '32i', '34i', '36i', '38i', '40i',
+//     //32j, 34j, 36j, 38j, 40j, 42j,
+//     '32j', '34j', '36j', '38j', '40j', '42j',
+//   ];
+//   BodySizeBasedController controller = Get.put(BodySizeBasedController());
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Padding(
+//         padding: const EdgeInsets.symmetric(
+//           horizontal: 50.0,
+//         ),
+//         child: SizedBox(
+//           width: Get.width,
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               const MainTitle(
+//                 name: 'Who Are You?',
+//               ),
+//               Row(
+//                 children: [
+//                   Column(
+//                     children: [
+//                       const SubTitle(name: 'Member Information'),
+//                       _RowForOneInfo(
+//                         name: 'Name',
+//                         textEditingController: controller.nameTextController,
+//                       ),
+//                       _RowForOneInfo(
+//                         name: 'Age',
+//                         textEditingController: controller.ageTextController,
+//                       ),
+//                       const SubTitle(name: 'Body Information'),
+//                       _RowForOneInfo(
+//                         name: 'Weight',
+//                         textEditingController: controller.weightTextController,
+//                       ),
+//                       _RowForOneInfo(
+//                         name: 'Height',
+//                         textEditingController: controller.heightTextController,
+//                       ),
+//                       _DropDownButton(
+//                         name: 'Body Type',
+//                         selectedValue: bodyTypeSelectedValue,
+//                         list: bodyTypeList,
+//                         onChanged: onBodyTypeChanged,
+//                       ),
+//                       _DropDownButton(
+//                         name: 'Bust Size',
+//                         selectedValue: bustSizeSelectedValue,
+//                         list: bustSizeList,
+//                         onChanged: onBustSizeChanged,
+//                       ),
+//                       // _BustSizeDropDownButton(
+//                       //   name: 'Bust Size',
+//                       //   controller: controller,
+//                       // ),
+//                     ],
+//                   ),
+//                   // Padding(
+//                   //   padding: const EdgeInsets.only(
+//                   //     left: 400.0,
+//                   //     top: 200,
+//                   //   ),
+//                   //   child: Image.asset(
+//                   //     'asset/clothes/cover1.png',
+//                   //     width: 600,
+//                   //   ),
+//                   // ),
+//                 ],
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.only(
+//                   top: 35.0,
+//                   left: 35.0,
+//                 ),
+//                 child: BackNextButtons(
+//                   onNextPressed: () async {
+//                     print('-----next button is clicked-------------');
+//                     final result = await controller.getBodySizeBasedRecommendation();
+//                     print('------list in home screen-------');
+
+//                     Get.to(
+//                       () => const RecommendationOutcomeScreen(),
+//                       arguments: result,
+//                     );
+//                   },
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   void onBodyTypeChanged(String? value) {
+//     setState(() {
+//       bodyTypeSelectedValue = value!;
+//       controller.bodyTypeTextController.text = value;
+//       print(value);
+//     });
+//   }
+
+//   void onBustSizeChanged(String? value) {
+//     setState(() {
+//       bustSizeSelectedValue = value!;
+//       controller.bustSizeTextController.text = value;
+//       print(value);
+//     });
+//   }
+// }
+
+// class _RowForOneInfo extends StatelessWidget {
+//   final TextEditingController textEditingController;
+//   final String name;
+//   const _RowForOneInfo({
+//     required this.name,
+//     required this.textEditingController,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(
+//         top: 10.0,
+//       ),
+//       child: Row(
+//         children: [
+//           Text(name),
+//           const SizedBox(
+//             width: 10.0,
+//           ),
+//           SizedBox(
+//             width: 100,
+//             child: TextField(
+//               controller: textEditingController,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+// class _DropDownButton extends StatelessWidget {
+//   final String name;
+//   final String selectedValue;
+//   final List<String> list;
+//   ValueChanged<String?> onChanged;
+
+//   // final List<String> list;
+
+//   _DropDownButton({
+//     required this.name,
+//     required this.selectedValue,
+//     required this.list,
+//     required this.onChanged,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(
+//         top: 10.0,
+//         left: 30.0,
+//       ),
+//       child: Row(
+//         children: [
+//           Text(name),
+//           const SizedBox(
+//             width: 10,
+//           ),
+//           DropdownButton(
+//             value: selectedValue,
+//             items: list.map(
+//               (value) {
+//                 return DropdownMenuItem(
+//                   value: value,
+//                   child: Text(value),
+//                 );
+//               },
+//             ).toList(),
+//             onChanged: onChanged,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 // class _BustSizeDropDownButton extends StatefulWidget {
 //   final String name;

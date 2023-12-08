@@ -15,7 +15,18 @@ class SelectionBasedHomeScreenController extends GetxController {
   List<String>? selectionList;
   String? recommendationType;
 
-  Dio dio = Dio();
+  late Dio dio; // Declare it as late, to be initialized later in the constructor.
+
+  SelectionBasedHomeScreenController() {
+    BaseOptions options = BaseOptions(
+      baseUrl: "http://13.209.203.131:8001/select_based",
+      connectTimeout: const Duration(milliseconds: 50000),
+      receiveTimeout: const Duration(milliseconds: 50000),
+    );
+    dio = Dio(options);
+  }
+
+  // Dio dio = Dio();
 
   Future<List<RecommendationModel>> getSelectionBasedRecommendation() async {
     print('name = ${nameTextController.value.text}');
@@ -27,7 +38,7 @@ class SelectionBasedHomeScreenController extends GetxController {
     print('selection_list $selectionList'); //item-id
     print('recommendation_type $recommendationType'); // string
 
-    final response = dio.get("https://13.209.203.131/selection_based", data: {
+    final response = dio.get("http://13.209.203.131:8001/selection_based", queryParameters: {
       'name': nameTextController.value.text,
       'age': int.parse(ageTextController.value.text),
       'weight': double.parse(weightTextController.value.text),
@@ -35,10 +46,10 @@ class SelectionBasedHomeScreenController extends GetxController {
       'body_type': bodyTypeTextController.value.text ?? 'hourglass',
       'bust_size': bustSizeTextController.value.text ?? '34b',
       'selection_list': selectionList,
-      'recommendation_list': recommendationType,
+      'recommendation_type': recommendationType,
     });
     print('-----SelectionBased Response----------');
-    print(response);
+    print('response from server = $response');
 
     final list = [
       {

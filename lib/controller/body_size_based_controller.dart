@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ml_project/model/recommendation_model.dart';
+import 'package:http/http.dart' as http;
 
 class BodySizeBasedController extends GetxController {
   TextEditingController nameTextController = TextEditingController();
@@ -11,7 +14,17 @@ class BodySizeBasedController extends GetxController {
   TextEditingController bodyTypeTextController = TextEditingController(); //category
   TextEditingController bustSizeTextController = TextEditingController(); //category
 
-  Dio dio = Dio();
+  late Dio dio; // Declare it as late, to be initialized later in the constructor.
+
+  BodySizeBasedController() {
+    BaseOptions options = BaseOptions(
+      baseUrl: "http://13.209.203.131:8001/body_size_based",
+      connectTimeout: const Duration(milliseconds: 500000),
+      receiveTimeout: const Duration(milliseconds: 500000),
+    );
+    dio = Dio(options);
+  }
+  //Dio dio = Dio();
 
   Future<List<RecommendationModel>> getBodySizeBasedRecommendation() async {
     print('-------body size based controller----------');
@@ -21,18 +34,36 @@ class BodySizeBasedController extends GetxController {
     print('height: ${heightTextController.value.text}');
     print('body_type: ${bodyTypeTextController.value.text}');
     print('bust_size: ${bustSizeTextController.value.text}');
-    // print('selection_list $selectionList'); //item-id
-    // print('recommendation_list $recommendationList');
 
-    final response = dio.get("https://13.209.203.131:8080/body_size_based", data: {
-      'name': nameTextController.value.text,
-      'age': int.parse(ageTextController.value.text),
-      'weight': double.parse(weightTextController.value.text),
-      'height': double.parse(heightTextController.value.text),
-      'body_type': bodyTypeTextController.value.text ?? 'hourglass',
-      'bust_size': bustSizeTextController.value.text ?? '34b',
-    });
     print('-----BodySizeBased Response----------');
+    final response = dio.get(
+      "http://13.209.203.131:8001/body_size_based",
+      queryParameters: {
+        'name': nameTextController.value.text,
+        'age': int.parse(ageTextController.value.text),
+        'weight': double.parse(weightTextController.value.text),
+        'height': double.parse(heightTextController.value.text),
+        'body_type': bodyTypeTextController.value.text ?? 'hourglass',
+        'bust_size': bustSizeTextController.value.text ?? '34b',
+      },
+    );
+    // final url = Uri.parse('http://127.0.0.1:8000/body_size_based');
+
+    // final response = await http.Request(
+    //   url,
+    //   headers: {'Content-Type': 'application/json'},
+    //   data: json.encode({
+    //     "body_size_based": {
+    //       'name': nameTextController.value.text,
+    //       'age': int.parse(ageTextController.value.text),
+    //       'weight': double.parse(weightTextController.value.text),
+    //       'height': double.parse(heightTextController.value.text),
+    //       'body_type': bodyTypeTextController.value.text ?? 'hourglass',
+    //       'bust_size': bustSizeTextController.value.text ?? '34b',
+    //     }
+    //   }),
+    // );
+
     print(response);
 
     final list = [

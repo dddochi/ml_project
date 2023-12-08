@@ -21,6 +21,8 @@ class BodySizeBasedController extends GetxController {
       baseUrl: "http://13.209.203.131:8001/body_size_based",
       connectTimeout: const Duration(milliseconds: 500000),
       receiveTimeout: const Duration(milliseconds: 500000),
+      followRedirects: false, // 리다이렉션을 수동으로 처리
+      maxRedirects: 5, // 최대 리다이렉션 횟수
     );
     dio = Dio(options);
   }
@@ -34,11 +36,12 @@ class BodySizeBasedController extends GetxController {
     print('height: ${heightTextController.value.text}');
     print('body_type: ${bodyTypeTextController.value.text}');
     print('bust_size: ${bustSizeTextController.value.text}');
-
+    //8080 - 서버 연결 성공 but 302에러
+    //8001 - timeout - 서버 연결 x
     print('-----BodySizeBased Response----------');
-    final response = dio.get(
-      "http://13.209.203.131:8001/body_size_based",
-      queryParameters: {
+    final response = dio.post(
+      "http://13.209.203.131:8000/body_size_based",
+      data: {
         'name': nameTextController.value.text,
         'age': int.parse(ageTextController.value.text),
         'weight': double.parse(weightTextController.value.text),
@@ -47,22 +50,6 @@ class BodySizeBasedController extends GetxController {
         'bust_size': bustSizeTextController.value.text ?? '34b',
       },
     );
-    // final url = Uri.parse('http://127.0.0.1:8000/body_size_based');
-
-    // final response = await http.Request(
-    //   url,
-    //   headers: {'Content-Type': 'application/json'},
-    //   data: json.encode({
-    //     "body_size_based": {
-    //       'name': nameTextController.value.text,
-    //       'age': int.parse(ageTextController.value.text),
-    //       'weight': double.parse(weightTextController.value.text),
-    //       'height': double.parse(heightTextController.value.text),
-    //       'body_type': bodyTypeTextController.value.text ?? 'hourglass',
-    //       'bust_size': bustSizeTextController.value.text ?? '34b',
-    //     }
-    //   }),
-    // );
 
     print(response);
 

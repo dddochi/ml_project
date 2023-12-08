@@ -18,12 +18,33 @@ class RecommendationOutcomeScreen extends StatelessWidget {
 
     print('outcomepage---------');
     print(recommendationList);
+    List<DisplayModel> displayList1 = [];
+    List<DisplayModel> displayList2 = [];
 
-    final List<DisplayModel> displayList = recommendationList
-        .map(
-          (e) => getDisplayModel(e.categoryName, e.itemId),
-        )
-        .toList();
+    if (recommendationList.length <= 6) {
+      displayList1 = recommendationList
+          .map(
+            (e) => getDisplayModel(e.categoryName, e.itemId),
+          )
+          .toList();
+    }
+
+    if (recommendationList.length > 6) {
+      List<RecommendationModel> sublist1 = recommendationList.sublist(0, 6);
+      List<RecommendationModel> sublist2 = recommendationList.sublist(6);
+
+      displayList1 = sublist1
+          .map(
+            (e) => getDisplayModel(e.categoryName, e.itemId),
+          )
+          .toList();
+
+      displayList2 = sublist2
+          .map(
+            (e) => getDisplayModel(e.categoryName, e.itemId),
+          )
+          .toList();
+    }
     print('-------reList----------');
     print(recommendationList);
 
@@ -42,24 +63,41 @@ class RecommendationOutcomeScreen extends StatelessWidget {
 //       firstSublist = recommendationList;
 //     }
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 50.0,
-        ),
-        child: Column(
-          children: [
-            const MainTitle(
-              name: 'Recommendation',
+      body: Column(
+        children: [
+          const MainTitle(
+            name: 'Recommendation',
+          ),
+          Row(
+            children: displayList1
+                .map(
+                  (e) => ColumnForACloth(
+                    itemId: e.itemId,
+                    fakeName: e.fakeName,
+                    imagePath: e.imagePath,
+                  ),
+                )
+                .toList(),
+          ),
+          if (displayList2.isNotEmpty)
+            Row(
+              children: displayList2
+                  .map(
+                    (e) => ColumnForACloth(
+                      itemId: e.itemId,
+                      fakeName: e.fakeName,
+                      imagePath: e.imagePath,
+                    ),
+                  )
+                  .toList(),
             ),
-            Row(children: displayList.map((e) => ColumnForACloth(itemId: e.itemId, fakeName: e.fakeName, imagePath: e.imagePath)).toList()),
-            ElevatedButton(
-              onPressed: () {
-                Get.back();
-              },
-              child: const Text('Back'),
-            ),
-          ],
-        ),
+          ElevatedButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: const Text('Back'),
+          ),
+        ],
       ),
     );
   }

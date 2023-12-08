@@ -61,6 +61,26 @@ class BodySizeBasedController extends GetxController {
       {
         'category': 0,
         'item_id': "1501483_42",
+      },
+      {
+        'category': 0,
+        'item_id': "1501483_42",
+      },
+      {
+        'category': 0,
+        'item_id': "1501483_42",
+      },
+      {
+        'category': 0,
+        'item_id': "1501483_42",
+      },
+      {
+        'category': 0,
+        'item_id': "1501483_42",
+      },
+      {
+        'category': 0,
+        'item_id': "1501483_42",
       }
     ];
 

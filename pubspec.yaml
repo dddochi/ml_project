@@ -74,14 +74,12 @@ flutter:
     - asset/clothes/cape/
     - asset/clothes/cardigan/
     - asset/clothes/coat/
-    - asset/clothes/combo/
     - asset/clothes/crewneck/
     - asset/clothes/culotte/
     - asset/clothes/culottes/
     - asset/clothes/down/
     - asset/clothes/dress/
     - asset/clothes/duster/
-    - asset/clothes/for_/
     - asset/clothes/frock/
     - asset/clothes/gown/
     - asset/clothes/henley/
@@ -97,7 +95,6 @@ flutter:
     - asset/clothes/leggings/
     - asset/clothes/maxi/
     - asset/clothes/midi/
-    - asset/clothes/mini/
     - asset/clothes/overalls/
     - asset/clothes/overcoat/
     - asset/clothes/pant/
@@ -120,10 +117,10 @@ flutter:
     - asset/clothes/sweatershirt/
     - asset/clothes/sweatpants/
     - asset/clothes/sweatshirt/
-    - asset/clothes/t_shirt/
+    # - asset/clothes/t_shirt/
     - asset/clothes/tank/
     - asset/clothes/tee/
-    - asset/clothes/tight/
+  
     - asset/clothes/top/
     - asset/clothes/trench/
     - asset/clothes/trouser/

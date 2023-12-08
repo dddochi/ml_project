@@ -1,5 +1,14 @@
 final duster_list = [
-{"item-id": "2362581", "type": "duster", "fake-name": "stylish playful lively exuberant duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2486625", "type": "duster", "fake-name": "edgy vintage sharp exuberant duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2362581", "type": "duster", "fake-name": "posh whimsical sleek suave duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2486625", "type": "duster", "fake-name": "stylish minimalist urban effortless duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2486625", "type": "duster", "fake-name": "trendy eclectic lively exuberant duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2182095", "type": "duster", "fake-name": "classy eclectic urban bohemian duster", "image-path": "asset/clothes/duster/4.jpeg"},{"item-id": "2486625", "type": "duster", "fake-name": "sophisticated casual zen exuberant duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2182095", "type": "duster", "fake-name": "glamorous quirky magnetic bohemian duster", "image-path": "asset/clothes/duster/4.jpeg"},{"item-id": "2362581", "type": "duster", "fake-name": "classy eclectic blissful trendsetting duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2182095", "type": "duster", "fake-name": "exquisite radiant spontaneous radiant duster", "image-path": "asset/clothes/duster/4.jpeg"},{"item-id": "2486625", "type": "duster", "fake-name": "sleek cozy mellow serene duster", "image-path": "asset/clothes/duster/2.jpeg"},{"item-id": "2182095", "type": "duster", "fake-name": "sleek whimsical regal radiant duster", "image-path": "asset/clothes/duster/4.jpeg"}
-
-
+  {"item-id": "2362581_8", "type": "duster", "fake-name": "classy vintage zen versatile duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2486625_14", "type": "duster", "fake-name": "glamorous minimalist urban bohemian duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2362581_14", "type": "duster", "fake-name": "sleek urban sleek sleek duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2486625_8", "type": "duster", "fake-name": "exquisite posh spontaneous trendsetting duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2486625_14", "type": "duster", "fake-name": "glamorous minimalist urban bohemian duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2182095_8", "type": "duster", "fake-name": "fashionable relaxed lively poised duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2486625_14", "type": "duster", "fake-name": "glamorous minimalist urban bohemian duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2182095_8", "type": "duster", "fake-name": "fashionable relaxed lively poised duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2362581_4", "type": "duster", "fake-name": "sophisticated playful refined urbane duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2182095_14", "type": "duster", "fake-name": "classy vintage zen versatile duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2486625_4", "type": "duster", "fake-name": "stylish cozy mellow contemporary duster", "image-path": "asset/clothes/duster/3.jpeg"},
+  {"item-id": "2182095_4", "type": "duster", "fake-name": "sophisticated playful refined urbane duster", "image-path": "asset/clothes/duster/3.jpeg"}
 ];

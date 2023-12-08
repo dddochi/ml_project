@@ -1,4 +1,6 @@
 enum CLOTHES {
+  //new - yaml / asset img check!
+  //top,outer... list도 확인
   //0 ~ 67
   ballgown,
   blazer,
@@ -6,21 +8,21 @@ enum CLOTHES {
   blouson,
   bomber,
   buttondown,
-  caftan,
+  caftan, //neq
   cami,
   cape,
   cardigan,
   coat,
-  combo,
+  combo, //x
   crewneck,
   culotte,
-  culottes,
+  culottes, //new
   down,
-  dress,
+  dress, // 짤림 - 문제 있음
   duster,
-  for_,
+  for_, //x
   frock,
-  gown,
+  gown, // 짤림 - 문제 있음
   henley,
   hoodie,
   jacket,
@@ -30,14 +32,14 @@ enum CLOTHES {
   kaftan,
   kimono,
   knit,
-  legging,
+  legging, //new
   leggings,
   maxi,
   midi,
-  mini,
+  mini, //x
   overalls,
   overcoat,
-  pant,
+  pant, //new
   pants,
   parka,
   peacoat,
@@ -45,7 +47,7 @@ enum CLOTHES {
   print,
   pullover,
   romper,
-  sheath,
+  sheath, // 짤림 - 문제 있음
   shift,
   shirt,
   shirtdress,
@@ -54,13 +56,13 @@ enum CLOTHES {
   skort,
   suit,
   sweater,
-  sweatershirt,
+  sweatershirt, //new
   sweatpants,
   sweatshirt,
-  t_shirt,
+  t_shirt, //-> t-shirt -> t_shirt로 바꾸기
   tank,
   tee,
-  tight,
+  tight, // x
   top,
   trench,
   trouser,
@@ -155,7 +157,3 @@ enum CLOTHES {
 
 //main -> 추천(신체정보 + 선택) / 커플아이템 (신체정보) 
 
-//정보 입력 안하거나, 선택 안했을 때 - 페이지 안넘어가기!
-//textFormField 기능 사용
-
-//돌려받을 때 item-id랑 카테고리 번호 같이 return 받기

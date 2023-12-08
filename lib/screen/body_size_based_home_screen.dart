@@ -124,17 +124,23 @@ class _BodySizeBasedHomeScreenState extends State<BodySizeBasedHomeScreen> {
                   // ),
                 ],
               ),
-              BackNextButtons(
-                onNextPressed: () async {
-                  print('-----next button is clicked-------------');
-                  final result = await controller.getBodySizeBasedRecommendation();
-                  print('------list in home screen-------');
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 35.0,
+                  left: 35.0,
+                ),
+                child: BackNextButtons(
+                  onNextPressed: () async {
+                    print('-----next button is clicked-------------');
+                    final result = await controller.getBodySizeBasedRecommendation();
+                    print('------list in home screen-------');
 
-                  Get.to(
-                    () => const RecommendationOutcomeScreen(),
-                    arguments: result,
-                  );
-                },
+                    Get.to(
+                      () => const RecommendationOutcomeScreen(),
+                      arguments: result,
+                    );
+                  },
+                ),
               ),
             ],
           ),

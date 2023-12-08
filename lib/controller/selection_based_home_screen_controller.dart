@@ -27,25 +27,27 @@ class SelectionBasedHomeScreenController extends GetxController {
     print('selection_list $selectionList'); //item-id
     print('recommendation_type $recommendationType'); // string
 
-    // dio.get("https://13.209.203.131:8080/selection_based", data: {
-    //   'name': nameTextController.value.text,
-    //   'age': int.parse(ageTextController.value.text),
-    //   'weight': double.parse(weightTextController.value.text),
-    //   'height': double.parse(heightTextController.value.text),
-    //   'body_type': bodyType,
-    //   'bust_size': bustSize,
-    //   'selection_list': selectionList,
-    //   'recommendation_list': recommendationList,
-    // });
+    final response = dio.get("https://13.209.203.131/selection_based", data: {
+      'name': nameTextController.value.text,
+      'age': int.parse(ageTextController.value.text),
+      'weight': double.parse(weightTextController.value.text),
+      'height': double.parse(heightTextController.value.text),
+      'body_type': bodyTypeTextController.value.text ?? 'hourglass',
+      'bust_size': bustSizeTextController.value.text ?? '34b',
+      'selection_list': selectionList,
+      'recommendation_list': recommendationType,
+    });
+    print('-----SelectionBased Response----------');
+    print(response);
 
     final list = [
       {
-        'category': 1,
-        'item_id': "2660685",
+        'category': 0,
+        'item_id': "1501483_28",
       },
       {
-        'category': 1,
-        'item_id': "2641483",
+        'category': 0,
+        'item_id': "1501483_42",
       }
     ];
     print(list);

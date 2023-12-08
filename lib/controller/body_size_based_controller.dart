@@ -24,24 +24,25 @@ class BodySizeBasedController extends GetxController {
     // print('selection_list $selectionList'); //item-id
     // print('recommendation_list $recommendationList');
 
-    // dio.get("https://13.209.203.131:8080/body_size_based", data: {
-    //   'name': nameTextController.value.text,
-    //   'age': int.parse(ageTextController.value.text),
-    //   'weight': double.parse(weightTextController.value.text),
-    //   'height': double.parse(heightTextController.value.text),
-    //   'body_type': bodyType,
-    //   'bust_size': bustSize,
-
-    // });
+    final response = dio.get("https://13.209.203.131:8080/body_size_based", data: {
+      'name': nameTextController.value.text,
+      'age': int.parse(ageTextController.value.text),
+      'weight': double.parse(weightTextController.value.text),
+      'height': double.parse(heightTextController.value.text),
+      'body_type': bodyTypeTextController.value.text ?? 'hourglass',
+      'bust_size': bustSizeTextController.value.text ?? '34b',
+    });
+    print('-----BodySizeBased Response----------');
+    print(response);
 
     final list = [
       {
-        'category': 1,
-        'item_id': "2660685",
+        'category': 0,
+        'item_id': "1501483_28",
       },
       {
-        'category': 1,
-        'item_id': "2641483",
+        'category': 0,
+        'item_id': "1501483_42",
       }
     ];
 

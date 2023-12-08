@@ -124,12 +124,18 @@ class _SelectionBasedHomeScreenState extends State<SelectionBasedHomeScreen> {
                   // ),
                 ],
               ),
-              BackNextButtons(
-                onNextPressed: () {
-                  Get.to(
-                    () => const RecommendationSelectionScreen(),
-                  );
-                },
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 35.0,
+                  left: 35.0,
+                ),
+                child: BackNextButtons(
+                  onNextPressed: () {
+                    Get.to(
+                      () => const RecommendationSelectionScreen(),
+                    );
+                  },
+                ),
               ),
             ],
           ),

@@ -11,29 +11,73 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: Get.height,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Get.to(() => const SelectionBasedHomeScreen());
-              },
-              child: const Text('Selection Based Item Recommendation'),
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(
+              top: 30.0,
+              bottom: 40.0,
             ),
-            const SizedBox(
-              width: 30.0,
+            child: Text(
+              'Rent The Runway',
+              style: TextStyle(
+                fontSize: 20.0,
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Get.to(() => const BodySizeBasedHomeScreen());
-              },
-              child: const Text('BodySize Based Couple Item Recommendation'),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 50.0),
+            child: Text(
+              'Choose Recommendation',
+              style: TextStyle(
+                fontSize: 40.0,
+              ),
             ),
-          ],
-        ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Get.to(() => const SelectionBasedHomeScreen());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'Selection Based Item Recommendation',
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 30.0,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.to(() => const BodySizeBasedHomeScreen());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'BodySize Based Couple Item Recommendation',
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

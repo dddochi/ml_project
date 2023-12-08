@@ -117,7 +117,7 @@ flutter:
     - asset/clothes/sweatershirt/
     - asset/clothes/sweatpants/
     - asset/clothes/sweatshirt/
-    # - asset/clothes/t_shirt/
+    - asset/clothes/t_shirt/
     - asset/clothes/tank/
     - asset/clothes/tee/
   
